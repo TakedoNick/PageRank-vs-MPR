@@ -9,7 +9,7 @@ def normal_matrix(a):
     # 对于非对称的矩阵，我们的归一化的方式应该是按照行来进行归一化
     for number in range(0, np.size(a, 0)):
         if number % 10000 == 0:
-            print "echo is %d" % number
+            print("echo is %d" % number)
         row_sum = a.getrow(number).sum()
         if row_sum == 0:
             continue
@@ -39,7 +39,7 @@ def motif_times(adjacency_matrix, a, type, alpha_value):
 
     if type == 'M1':
         for i in range(a):
-            print 'echo for motif is %d' % i
+            print('echo for motif is %d' % i)
             adjacency_tran = np.transpose(adjacency_matrix)
             B_matrix_spare = adjacency_matrix.multiply(adjacency_tran)
             U_matrix = adjacency_matrix - B_matrix_spare
@@ -52,10 +52,10 @@ def motif_times(adjacency_matrix, a, type, alpha_value):
             adjacency_tran = np.transpose(adjacency_matrix)
             adjacency_matrix = adjacency_matrix + adjacency_tran
             if len(adjacency_matrix.data) > 0:
-                print np.max(adjacency_matrix.data), adjacency_matrix.nnz
+                print(np.max(adjacency_matrix.data), adjacency_matrix.nnz)
     elif type == 'M2':
         for i in range(a):
-            print 'echo for motif is %d' % i
+            print('echo for motif is %d' % i)
             adjacency_tran = np.transpose(adjacency_matrix)
             B_matrix_spare = adjacency_matrix.multiply(adjacency_tran)
             U_matrix = adjacency_matrix - B_matrix_spare
@@ -73,10 +73,10 @@ def motif_times(adjacency_matrix, a, type, alpha_value):
             adjacency_tran = np.transpose(adjacency_matrix)
             adjacency_matrix = adjacency_matrix + adjacency_tran
             if len(adjacency_matrix.data) > 0:
-                print np.max(adjacency_matrix.data), adjacency_matrix.nnz
+                print(np.max(adjacency_matrix.data), adjacency_matrix.nnz)
     elif type == 'M3':
         for i in range(a):
-            print 'echo for motif is %d' % i
+            print('echo for motif is %d' % i)
             adjacency_tran = np.transpose(adjacency_matrix)
             B_matrix_spare = adjacency_matrix.multiply(adjacency_tran)
             U_matrix = adjacency_matrix - B_matrix_spare
@@ -93,10 +93,10 @@ def motif_times(adjacency_matrix, a, type, alpha_value):
             adjacency_tran = np.transpose(adjacency_matrix)
             adjacency_matrix = adjacency_matrix + adjacency_tran
             if len(adjacency_matrix.data) > 0:
-                print np.max(adjacency_matrix.data), adjacency_matrix.nnz
+                print(np.max(adjacency_matrix.data), adjacency_matrix.nnz)
     elif type == 'M4':
         for i in range(a):
-            print 'echo for motif is %d' % i
+            print('echo for motif is %d' % i)
             adjacency_tran = np.transpose(adjacency_matrix)
             B_matrix_spare = adjacency_matrix.multiply(adjacency_tran)
             result_1 = B_matrix_spare.dot(B_matrix_spare)
@@ -104,10 +104,10 @@ def motif_times(adjacency_matrix, a, type, alpha_value):
             adjacency_matrix = result_1
             adjacency_matrix = normal_matrix_new(adjacency_matrix)
             if len(adjacency_matrix.data) > 0:
-                print np.max(adjacency_matrix.data), adjacency_matrix.nnz
+                print(np.max(adjacency_matrix.data), adjacency_matrix.nnz)
     elif type == 'M5':
         for i in range(a):
-            print 'echo for motif is %d' % i
+            print('echo for motif is %d' % i)
             adjacency_tran = np.transpose(adjacency_matrix)
             B_matrix_spare = adjacency_matrix.multiply(adjacency_tran)
             U_matrix = adjacency_matrix - B_matrix_spare
@@ -125,10 +125,10 @@ def motif_times(adjacency_matrix, a, type, alpha_value):
             adjacency_tran = np.transpose(adjacency_matrix)
             adjacency_matrix = adjacency_matrix + adjacency_tran
             if len(adjacency_matrix.data) > 0:
-                print np.max(adjacency_matrix.data), adjacency_matrix.nnz
+                print(np.max(adjacency_matrix.data), adjacency_matrix.nnz)
     elif type == 'M6':
         for i in range(a):
-            print 'echo for motif is %d' % i
+            print('echo for motif is %d' % i)
             adjacency_tran = np.transpose(adjacency_matrix)
             B_matrix_spare = adjacency_matrix.multiply(adjacency_tran)
             U_matrix = adjacency_matrix - B_matrix_spare
@@ -144,10 +144,10 @@ def motif_times(adjacency_matrix, a, type, alpha_value):
             adjacency_matrix = adjacency_matrix + result_3
             adjacency_matrix = normal_matrix_new(adjacency_matrix)
             if len(adjacency_matrix.data) > 0:
-                print np.max(adjacency_matrix.data), adjacency_matrix.nnz
+                print(np.max(adjacency_matrix.data), adjacency_matrix.nnz)
     elif type == 'M7':
         for i in range(a):
-            print 'echo for motif is %d' % i
+            print('echo for motif is %d' % i)
             adjacency_tran = np.transpose(adjacency_matrix)
             B_matrix_spare = adjacency_matrix.multiply(adjacency_tran)
             U_matrix = adjacency_matrix - B_matrix_spare
@@ -163,11 +163,11 @@ def motif_times(adjacency_matrix, a, type, alpha_value):
             adjacency_matrix = adjacency_matrix + result_3
             adjacency_matrix = normal_matrix_new(adjacency_matrix)
             if len(adjacency_matrix.data) > 0:
-                print np.max(adjacency_matrix.data), adjacency_matrix.nnz
+                print(np.max(adjacency_matrix.data), adjacency_matrix.nnz)
     return adjacency_matrix
 
 
-def construct_motif(txt_name, times, type):
+def construct_motif(txt_name, times, type, alpha_value):
     # 先从txt中读取数据，txt中每一行的格式为a,b。表示的是a引用了b
     entry = []
     f = open(txt_name)
@@ -200,7 +200,7 @@ def construct_motif(txt_name, times, type):
     # 为了要构建矩阵，需要将author的id进行连续性的编码
     for nnn in range(len(spare_array_row)):
         if counttt % 300000 == 0:
-            print 'echo is %d' % counttt
+            print('echo is %d' % counttt)
         counttt += 1
         id1 = spare_array_row[nnn]
         id2 = spare_array_col[nnn]
@@ -214,11 +214,11 @@ def construct_motif(txt_name, times, type):
     lennn = data_array.shape[0]
     # 下面这一句adjacency_matrix.data主要是为了能够构建binary情况下的矩阵，如果需要weighted的矩阵，必须注释这句话
     adjacency_matrix.data = np.ones((1, lennn), dtype=np.float64)[0]
-    # print adjacency_matrix.nnz
+    # `print `adjacency_matrix.nnz
     result_B = adjacency_matrix.copy()
     result_B = normal_matrix(result_B)
     # result_B表示的是经过归一化之后的邻接矩阵
-    result_C = motif_times(adjacency_matrix, times, type)
+    result_C = motif_times(adjacency_matrix, times, type, alpha_value)
     # result_C表示的是经过归一化的motif矩阵
     # 下面使用参数alpha_value对两个矩阵进行融合
     # alpha_value = 0.1
@@ -226,7 +226,7 @@ def construct_motif(txt_name, times, type):
     result_temp2 = result_C.multiply(1-alpha_value).tolil()
     result_D = result_temp1 + result_temp2
     result_D = result_D.tocsr()
-    print maxnum
+    print(maxnum)
     return result_D, entry_unique
 
 
@@ -235,7 +235,7 @@ def binary(a_original):
     a = a_original.copy()
     for number in range(0, np.size(a, 0)):
         if number % 10000 == 0:
-            print "echo is %d" % number
+            print("echo is %d" % number)
         for number_col in a.indices[a.indptr[number]:a.indptr[number+1]]:
             a[number, number_col] = 1
     return a

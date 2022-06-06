@@ -11,7 +11,7 @@ def graphMove_new(a):
     # 这个函数是将我们得到的矩阵进行归一化的处理，用的方法是按照行进行
     for number in range(0, np.size(a, 0)):
         if number % 10000 == 0:
-            print "echo is %d" % number
+            print("echo is %d" % number)
         row_sum = a.getrow(number).sum()
         if row_sum == 0:
             continue
@@ -49,13 +49,13 @@ def pageRank(p, m, v):
     e = np.ones((m.shape[0], 1))
     n = m.shape[0]
     count = 0
-    print m.shape
-    print v.shape
+    print(m.shape)
+    print(v.shape)
     # m_spare = csr_matrix(m)
     # we will use the equation to compute the value of pagerank 计算pageRank值
     while count <= MAX_TIME:
         if count % 10000 == 0:
-            print "echo is %d" % count
+            print("echo is %d" % count)
         v = p * m.dot(v) + ((1 - p) / n) * e
         count = count + 1
     return v
@@ -65,7 +65,7 @@ if __name__ == "__main__":
     # 如果从direct的网络中进行，则应该使用如下的语句获得矩阵，a在这里1表示的是motif的阶数，
     # 阶数为0即可得到pagerank在citation网络上的结果，'M6'表示我们做的是哪一种motif,alpha为融合参数
 
-    a, entry_unique = construct_motif('data/citation_network.txt', 1, 'M6', 0.4)
+    a, entry_unique = construct_motif('data/DBLP/citation_network.txt', 1, 'M6', 0.4)
 
     # M = graphMove_newest(a)
     M = graphMove_new(a)

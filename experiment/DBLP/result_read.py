@@ -27,7 +27,7 @@ if __name__ == '__main__':
     # 利用pagerank_motif的py得到的只是用户id以及其pagerank值
     # 这个py文件可以将其转换为id,名字，以及其pagerank值。
     # 生成的文件的每一行按照pagerank值进行排序
-    f = open('result_co_author_alpha0.4.txt')
+    f = open('result_citation_M6_alpha0.4.txt')
     while True:
         line = f.readline()
         if line:
@@ -50,9 +50,9 @@ if __name__ == '__main__':
     for i in range(50):
         top_k.append(dict[i][0])
     print top_k
-    name_txt = 'author_domain_id.txt'
+    name_txt = 'data/DBLP/author_name_id.txt'
     dict_name = read_name(name_txt)
-    output = open('result_coauthor_alpha0.4.txt', 'w')
+    output = open('result_citation_M6_alpha0.4.txt', 'w')
     for i in range(len(dict)):
         a = "%s;%s;%lf\n" % (dict[i][0], dict_name[dict[i][0]], dict[i][1])
         output.write(a)
