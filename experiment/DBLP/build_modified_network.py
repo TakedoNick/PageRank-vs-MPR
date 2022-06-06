@@ -40,5 +40,6 @@ def build_modified_network(network_file, out_file, seed_val):
     append_extraneous_links(ids, edge_count, out_file, seed_val)
     
 if __name__ == "__main__":
-    build_modified_network('data/DBLP/citation_network.txt', 'data/DBLP/citation_network_modified.txt', 42)
+    for i in range(30):
+        build_modified_network('data/DBLP/citation_network.txt', "data/DBLP/citation_network_modified_%d.txt" % (i), i)
     
