@@ -2,16 +2,17 @@ from pagerank_motif_direct import *
 from result_read import *
 
 # same as the __main__ code in pagerank_motif_direct but more general
+# network: network file path, e.g. data/DBLP/citation_network.txt
 # motif: 'M1' or 'M2' or ... or 'M7'
 # alpha: probability of restart, so float in 0 to 1
 # out_file: should be 'output/DBLP/<desired file name>' e.g. 'output/DBLP/result_citation_M6_alpha0.4.txt'
-def write_mpr_output(motif, alpha, out_file):
-    a, entry_unique = construct_motif('data/DBLP/citation_network.txt', 1, motif, alpha)
+def write_mpr_output(network, motif, alpha, out_file):
+    a, entry_unique = construct_motif(network, 1, motif, alpha)
 
     # M = graphMove_newest(a)
     M = graphMove_new(a)
     pr = firstPr(M)
-    p = 0.8
+    p = 1 - alpha
     v = pageRank(p, M, pr)
     output = open(out_file, 'w')
     for i in range(len(v)):
@@ -55,5 +56,5 @@ def format_output(out_file):
     output.close()
 
 if __name__ == "__main__":
-    write_mpr_output('M6', 0.4, 'output/DBLP/result_citation_M6_alpha0.4.txt')
+    write_mpr_output('data/DBLP/citation_network.txt', 'M6', 0.4, 'output/DBLP/result_citation_M6_alpha0.4.txt')
     format_output('output/DBLP/result_citation_M6_alpha0.4.txt')
