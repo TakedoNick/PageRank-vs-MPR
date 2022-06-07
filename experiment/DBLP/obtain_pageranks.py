@@ -56,5 +56,6 @@ def format_output(out_file):
     output.close()
 
 if __name__ == "__main__":
-    write_mpr_output('data/DBLP/citation_network.txt', 'M6', 0.4, 'output/DBLP/result_citation_M6_alpha0.4.txt')
-    format_output('output/DBLP/result_citation_M6_alpha0.4.txt')
+    write_mpr_output('data/DBLP/citation_network.txt', 'M6', 0.4, 'output/DBLP/result_M6_alpha0.4.txt')
+    #format_output('output/DBLP/result_M6_alpha0.4.txt')
+    write_mpr_output('data/DBLP/citation_network_modified_0.txt', 'M6', 0.4, 'output/DBLP/result_M6_alpha0.4_0.txt')
