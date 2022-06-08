@@ -78,7 +78,7 @@ def write_and_format(network_file, motif, alpha, out_file, time_file):
 if __name__ == "__main__":
     # clear the time log for this experiment
     # find the adjacency matrix for vanilla pagerank and report runtime
-    time_log = open("time_log.txt", 'w')
+    time_log = open("output/DBLP/time_log.txt", 'w')
     start = time.time()
     a, entry_unique = get_adjacency_matrix('data/DBLP/citation_network.txt')
     time_log.write("PR;%f\n" % (time.time() - start))
@@ -88,22 +88,22 @@ if __name__ == "__main__":
     v = compute_pagerank(a, 0.15)
     
     # write results to a file
-    output = open('output/DBLP/result_PR', 'w')
+    output = open('output/DBLP/result_PR.txt', 'w')
     for i in range(len(v)):
         a = "%lf %d\n" % (v[i], entry_unique[i])
         output.write(a)
     output.close()
     
     # format to get the researcher names associated with their ids
-    format_output('output/DBLP/result_PR')
+    format_output('output/DBLP/result_PR.txt')
     
     # obtain pageranks for all 7 motifs with alpha = 0.15
-    write_and_format('data/DBLP/citation_network.txt', 'M1', 0.15, 'output/DBLP/result_M1.txt', "time_log.txt")
-    write_and_format('data/DBLP/citation_network.txt', 'M2', 0.15, 'output/DBLP/result_M2.txt', "time_log.txt")
-    write_and_format('data/DBLP/citation_network.txt', 'M3', 0.15, 'output/DBLP/result_M3.txt', "time_log.txt")
-    write_and_format('data/DBLP/citation_network.txt', 'M4', 0.15, 'output/DBLP/result_M4.txt', "time_log.txt")
-    write_and_format('data/DBLP/citation_network.txt', 'M5', 0.15, 'output/DBLP/result_M5.txt', "time_log.txt")
-    write_and_format('data/DBLP/citation_network.txt', 'M6', 0.15, 'output/DBLP/result_M6.txt', "time_log.txt")
-    write_and_format('data/DBLP/citation_network.txt', 'M7', 0.15, 'output/DBLP/result_M7.txt', "time_log.txt")
+    write_and_format('data/DBLP/citation_network.txt', 'M1', 0.15, 'output/DBLP/result_M1.txt', "output/DBLP/time_log.txt")
+    write_and_format('data/DBLP/citation_network.txt', 'M2', 0.15, 'output/DBLP/result_M2.txt', "output/DBLP/time_log.txt")
+    write_and_format('data/DBLP/citation_network.txt', 'M3', 0.15, 'output/DBLP/result_M3.txt', "output/DBLP/time_log.txt")
+    write_and_format('data/DBLP/citation_network.txt', 'M4', 0.15, 'output/DBLP/result_M4.txt', "output/DBLP/time_log.txt")
+    write_and_format('data/DBLP/citation_network.txt', 'M5', 0.15, 'output/DBLP/result_M5.txt', "output/DBLP/time_log.txt")
+    write_and_format('data/DBLP/citation_network.txt', 'M6', 0.15, 'output/DBLP/result_M6.txt', "output/DBLP/time_log.txt")
+    write_and_format('data/DBLP/citation_network.txt', 'M7', 0.15, 'output/DBLP/result_M7.txt', "output/DBLP/time_log.txt")
 
     
