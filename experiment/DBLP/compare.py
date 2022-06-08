@@ -1,7 +1,7 @@
 from pagerank_motif_direct import *
 import time
 
-# code adapted from motif_construct_direct to find the adjacency matrix without computing a motif
+# code adapted from motif_construct_direct to find the adjacency matrix without computing a motif (i.e. for vanilla pagerank)
 def get_adjacency_matrix(network_file):
     # read the network file to find sources and destinations for edges
     # entry will be a list of tuples [src id, dst id]
@@ -48,6 +48,7 @@ def get_adjacency_matrix(network_file):
     adjacency_matrix = csr_matrix((sparse_array_data, (newsparse_array_row, newsparse_array_col)), shape=(maxnum, maxnum), dtype = np.float64)
     return adjacency_matrix, entry_unique
 
+# see obtain_pageranks.write_mpr_output for documentation on these instructions
 def compute_pagerank(adjacency_matrix, alpha):
     M = graphMove_new(adjacency_matrix)
     pr = firstPr(M)
@@ -59,7 +60,7 @@ def compute_pagerank(adjacency_matrix, alpha):
 # networks_list is a list of indices from 0 to 29 choosing which modified citation networks to use
 # motif is 'M1' or ... 'M7'
 # alpha in 0 to 1
-# out_file will have the errors written in
+# out_file will have the errors
 def compare(pagerank_vals, networks_list, motif, alpha, out_file):
     start = time.time()
 
@@ -85,14 +86,17 @@ if __name__ == '__main__':
     PR_adj, PR_id = get_adjacency_matrix('data/DBLP/citation_network.txt')
     PR = compute_pagerank(PR_adj, alpha)
     
+    # compute MPR with motif 1 on 5 of the modified networks
     motif = 'M1'
     compare(PR, range(5), motif, alpha, "output/DBLP/%s_errors.txt" % (motif))
     print("main has taken %f seconds" %(time.time() - start))
     
+    # compute MPR with motif 4 on a different 5 modified networks
     motif = 'M4'
     compare(PR, range(5, 10), motif, alpha, "output/DBLP/%s_errors.txt" % (motif))
     print("main has taken %f seconds" %(time.time() - start))
     
+    # compute MPR with motif 7 on a different 5 modified networks
     motif = 'M7'
     compare(PR, range(10, 15), motif, alpha, "output/DBLP/%s_errors.txt" % (motif))
     print("main has taken %f seconds" %(time.time() - start))
