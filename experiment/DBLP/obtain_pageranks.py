@@ -73,7 +73,7 @@ def format_output(out_file):
 
 def write_and_format(network_file, motif, alpha, out_file, time_file):
     write_mpr_output(network_file, motif, alpha, out_file, time_file)
-    format_output(network_file)
+    format_output(out_file)
 
 if __name__ == "__main__":
     # clear the time log for this experiment
