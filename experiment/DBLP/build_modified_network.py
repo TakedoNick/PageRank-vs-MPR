@@ -9,7 +9,10 @@ def get_ids_and_copy(network_file, out_file):
     edge_count = 0
     while True:
         line = f.readline()
+        
+        # duplicate the original citation network so that we may add more edges
         o.write(line)
+        
         if line:
             edge_count += 1
             line = line.replace('\n', '')
@@ -22,9 +25,13 @@ def get_ids_and_copy(network_file, out_file):
     
 def append_extraneous_links(ids, edge_count, out_file, seed_val):
     n = len(ids)
+    
+    # we add 1% of the original edge_count as new nodes and edges
     num_extra = int(0.01 * edge_count)
     id_counter = max(ids)
     out = open(out_file, 'a')
+    
+    # we are adding nodes with an edge pointed randomly, so we seed for reproducibility
     random.seed(seed_val)
     for i in range(num_extra):
         id_counter += 1
