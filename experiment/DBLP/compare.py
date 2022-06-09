@@ -109,13 +109,11 @@ if __name__ == '__main__':
     print("main has taken %f seconds" %(time.time() - start))
     
     alpha = 0.3
-    PR_adj, PR_id = get_adjacency_matrix('data/DBLP/citation_network.txt')
     PR = compute_pagerank(PR_adj, alpha)
     compare(PR, range(5, 10), motif, alpha, "output/DBLP/%s_alpha%s_errors.txt" % (motif,alpha))
     print("main has taken %f seconds" %(time.time() - start))
     
     alpha = 0.5
-    PR_adj, PR_id = get_adjacency_matrix('data/DBLP/citation_network.txt')
     PR = compute_pagerank(PR_adj, alpha)
     compare(PR, range(10,15), motif, alpha, "output/DBLP/%s_alpha%s_errors.txt" % (motif,alpha))
     print("main has taken %f seconds" %(time.time() - start))
