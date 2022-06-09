@@ -82,22 +82,40 @@ def compare(pagerank_vals, networks_list, motif, alpha, out_file):
 
 if __name__ == '__main__':
     start = time.time()
-    alpha = 0.15
-    PR_adj, PR_id = get_adjacency_matrix('data/DBLP/citation_network.txt')
-    PR = compute_pagerank(PR_adj, alpha)
+    #alpha = 0.15
+    #PR_adj, PR_id = get_adjacency_matrix('data/DBLP/citation_network.txt')
+    #PR = compute_pagerank(PR_adj, alpha)
     
     # compute MPR with motif 1 on 5 of the modified networks
-    motif = 'M1'
-    compare(PR, range(5), motif, alpha, "output/DBLP/%s_errors.txt" % (motif))
-    print("main has taken %f seconds" %(time.time() - start))
+    #motif = 'M1'
+    #compare(PR, range(5), motif, alpha, "output/DBLP/%s_errors.txt" % (motif))
+    #print("main has taken %f seconds" %(time.time() - start))
     
     # compute MPR with motif 4 on a different 5 modified networks
-    motif = 'M4'
-    compare(PR, range(5, 10), motif, alpha, "output/DBLP/%s_errors.txt" % (motif))
-    print("main has taken %f seconds" %(time.time() - start))
+    #motif = 'M4'
+    #compare(PR, range(5, 10), motif, alpha, "output/DBLP/%s_errors.txt" % (motif))
+    #print("main has taken %f seconds" %(time.time() - start))
     
     # compute MPR with motif 7 on a different 5 modified networks
+    #motif = 'M7'
+    #compare(PR, range(10, 15), motif, alpha, "output/DBLP/%s_errors.txt" % (motif))
+    #print("main has taken %f seconds" %(time.time() - start))
+    
     motif = 'M7'
-    compare(PR, range(10, 15), motif, alpha, "output/DBLP/%s_errors.txt" % (motif))
+    alpha = 0.1
+    PR_adj, PR_id = get_adjacency_matrix('data/DBLP/citation_network.txt')
+    PR = compute_pagerank(PR_adj, alpha)
+    compare(PR, range(5), motif, alpha, "output/DBLP/%s_alpha%s_errors.txt" % (motif,alpha))
     print("main has taken %f seconds" %(time.time() - start))
     
+    alpha = 0.3
+    PR_adj, PR_id = get_adjacency_matrix('data/DBLP/citation_network.txt')
+    PR = compute_pagerank(PR_adj, alpha)
+    compare(PR, range(5, 10), motif, alpha, "output/DBLP/%s_alpha%s_errors.txt" % (motif,alpha))
+    print("main has taken %f seconds" %(time.time() - start))
+    
+    alpha = 0.5
+    PR_adj, PR_id = get_adjacency_matrix('data/DBLP/citation_network.txt')
+    PR = compute_pagerank(PR_adj, alpha)
+    compare(PR, range(10,15), motif, alpha, "output/DBLP/%s_alpha%s_errors.txt" % (motif,alpha))
+    print("main has taken %f seconds" %(time.time() - start))
