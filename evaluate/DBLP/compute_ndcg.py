@@ -1,11 +1,11 @@
 from ndcg_DBLP import *
 
 # generalizes __main__ code from ndcg_DBLP for our experiments
-def compute_ndcg(results_file):
+def compute_ndcg(results_file, K):
     txt_name3 = 'data/DBLP/h_index_all.txt'
     dict_author = construct(txt_name3)
     txt_name = results_file
-    rank_value = 50
+    rank_value = K
     rank_array, name_array = read_top(txt_name, dict_author, rank_value)
     result = {}
     for i in range(len(rank_array)):
@@ -21,12 +21,19 @@ def compute_ndcg(results_file):
     return score
 
 if __name__ == '__main__':
-    out = open("output/DBLP/ndcg_values.txt", 'w')
+    # for top 10, top 50, top 250, and top 500
+    K_list = [10,50,100,250,500]
+    out = open("output/DBLP/ndcg_PR.txt", 'w')
     
-    score = compute_ndcg("output/DBLP/result_PR.txt")
-    out.write("%s;%f\n" % ('PR', score))
+    for K in K_list:
+        score = compute_ndcg("output/DBLP/result_PR.txt", K)
+        out.write("%d;%f\n" % (K,score))
+    out.close()
     
     for i in range(1,8):
         motif = "M%d" % (i)
-        score = compute_ndcg("output/DBLP/result_%s.txt" % (motif))
-        out.write("%s;%f\n" % (motif, score))
+        out = open("output/DBLP/ndcg_%s.txt" % (motif), 'w')
+        for K in K_list:
+            score = compute_ndcg("output/DBLP/result_%s.txt" % (motif), K)
+            out.write("%d;%f\n" % (K,score))
+        out.close()
