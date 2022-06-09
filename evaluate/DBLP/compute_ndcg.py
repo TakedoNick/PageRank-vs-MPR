@@ -22,7 +22,7 @@ def compute_ndcg(results_file, K):
 
 if __name__ == '__main__':
     # for top 10, top 50, top 250, and top 500
-    K_list = [10,50,100,250,500]
+    K_list = [50,100,250,500,1000]
     out = open("output/DBLP/ndcg_PR.txt", 'w')
     
     for K in K_list:
