@@ -1,6 +1,8 @@
 Evaluates Google's PageRank algorithm against Motif-based PageRank (Zhao et. al., https://arxiv.org/pdf/1912.11817.pdf) according to multiple metrics including robustness to adding malicious links. Base implementation of MPR is from https://github.com/HKUST-KnowComp/Motif-based-PageRank.
 
-IMPORTANT: The instructions to execute this code is below. If you have any trouble with using specific version of Python or these libraries, please instead use the jupyer notebook DSC291_NLA_PageRankvsMPR_Project_Main.ipynb. The code is transcribed there for easy use. It also displays the plots and visuals of our results.
+If you would just like to see our results, check out the [jupyter notebook](https://github.com/alsozatch/PageRank-vs-MPR/blob/master/DSC291_NLA_PageRankvsMPR_Project_Main.ipynb).
+
+IMPORTANT: The instructions to execute this code are below. If you have any trouble with using a specific version of Python or these libraries, please instead use the [jupyter notebook](https://github.com/alsozatch/PageRank-vs-MPR/blob/master/DSC291_NLA_PageRankvsMPR_Project_Main.ipynb). The code is transcribed there for easy use. It also displays the plots and visuals of our results.
 
 Please use Python 2.7 and use the following libraries:
 
