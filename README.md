@@ -1,20 +1,17 @@
 Evaluates Google's PageRank algorithm against Motif-based PageRank (Zhao et. al., https://arxiv.org/pdf/1912.11817.pdf) according to multiple metrics including robustness to adding malicious links. Base implementation of MPR is from https://github.com/HKUST-KnowComp/Motif-based-PageRank.
 
-To see our results, check out our [report document](https://drive.google.com/file/d/1HlYLjLTG8e3QlQoXfwF51OAnfVBeDaKa/view?usp=sharing). To just see the code, check out our [jupyter notebook](https://github.com/alsozatch/PageRank-vs-MPR/blob/master/DSC291_NLA_PageRankvsMPR_Project_Main.ipynb).
-
-
+To see our results, check out our [report document](https://drive.google.com/file/d/1HlYLjLTG8e3QlQoXfwF51OAnfVBeDaKa/view?usp=sharing). To just see the code, check out our [jupyter notebook](https://github.com/alsozatch/PageRank-vs-MPR/blob/master/DSC291_NLA_PageRankvsMPR_Project_Main.ipynb).  
+  
 
 The instructions to execute this code are below. If you have issues with using a specific version of Python or these libraries, instead use the [jupyter notebook](https://github.com/alsozatch/PageRank-vs-MPR/blob/master/DSC291_NLA_PageRankvsMPR_Project_Main.ipynb). The code is transcribed there for easy use. It also displays the plots and visuals of our results.
 
-Use Python 2.7 and the following libraries:
-
+Use Python 2.7 and the following libraries:  
 Numpy 1.11.0, Networkx 1.11, Scipy
 
-If you do not have these, you can install Python 2.7 from the official page and libraries with these commands:
-python2.7 -m pip install numpy==1.11.0
-python2.7 -m pip install networkx==1.11
-python2.7 -m pip install scipy
-
+If you do not have these, you can install Python 2.7 from the official page and libraries with these commands:  
+python2.7 -m pip install numpy==1.11.0  
+python2.7 -m pip install networkx==1.11  
+python2.7 -m pip install scipy  
 
 To produce the modified networks, run experiment/DBLP/build_modified_network.py. This creates citation_network_modified_#.txt for all # in [0,29], where each citation network has a number of extra nodes equal to 13935 (1% of the original edge count). Each of these extra nodes represents a new person in the network that points to exactly 1 random node that was originally in the network. This simulates adding extraneous links to the graph for testing robustness.
 
