@@ -131,11 +131,18 @@ The instructions to execute this code are below. If you have issues with using a
 ![NDCG](/images/NDCG.png)
 
 # Refereces
-1.	Zhao, H., Xu, X., Song, Y., Lee, D. L., Chen, Z., Gao, H., “Ranking Users in Social Networks with Motif-Based PageRank,” IEEE Transactions on Knowledge and Data Engineering, 2021. DOI.
 
-2.	Brin, S., Page, L., “The Anatomy of a Large-Scale Hypertextual Web Search Engine,” Computer Networks and ISDN Systems, 1998.
+[1] Dehmer, Matthias, ed. Structural analysis of complex networks. Springer Science & Business Media, 2010.
 
+[2] H. Zhao, X. Xu, Y. Song, D. L. Lee, Z. Chen and H. Gao, "Ranking Users in Social Networks with Motif-Based PageRank," in IEEE Transactions on Knowledge and Data Engineering, vol. 33, no. 5, pp. 2179-2192, 1 May 2021, doi: 10.1109/TKDE.2019.2953264.
 
----
+[3] Brin, Sergey, and Lawrence Page. "The anatomy of a large-scale hypertextual web search engine." Computer networks and ISDN systems 30.1-7 (1998): 107-117.
 
-## Repository Structure
+[4] Page, Lawrence, et al. The PageRank citation ranking: Bringing order to the web. Stanford InfoLab, 1999.
+
+[5] Altman, Alon; Tennenholtz, Moshe (2005). Ranking systems. New York, New York, USA: ACM Press.
+
+[6] Palacios-Huerta, Ignacio; Volij, Oscar (2004). "The Measurement of Intellectual Influence" (PDF). Econometrica. The Econometric Society. 72 (3): 963–977.
+
+[7] Martin, Kimball (2014). Graph Theory and Social Networks.
+
