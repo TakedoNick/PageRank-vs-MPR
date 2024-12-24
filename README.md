@@ -44,7 +44,7 @@ The project is structured into the following stages:
 
 ## Tools and Libraries
 
-- **Python 3.9**: Primary language for implementation.
+- **Python 2.7**: Primary language for implementation.
 - **Libraries**:
   - [NetworkX](https://networkx.org/) for graph processing.
   - [Pandas](https://pandas.pydata.org/) for data handling.
