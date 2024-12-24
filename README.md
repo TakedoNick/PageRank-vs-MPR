@@ -37,6 +37,9 @@ The project is structured into the following stages:
    - Relevance (NDCG for search ranking).
 4. **Visualization**: Comparative plots and insights.
 
+
+![](/images/Experimental%20Setup.png)
+
 ---
 
 ## Tools and Libraries
@@ -122,7 +125,10 @@ The instructions to execute this code are below. If you have issues with using a
 
 # Results
 
-
+![Compute Time](/images/Compute%20Time.png)
+![Memory Usage](/images/Memory%20Usage.png)
+![Robustness Error](/images/Robustness%20Error.png)
+![NDCG](/images/NDCG.png)
 
 # Refereces
 1.	Zhao, H., Xu, X., Song, Y., Lee, D. L., Chen, Z., Gao, H., “Ranking Users in Social Networks with Motif-Based PageRank,” IEEE Transactions on Knowledge and Data Engineering, 2021. DOI.
